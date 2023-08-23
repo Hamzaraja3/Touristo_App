@@ -1,4 +1,4 @@
-import { View, Text,TouchableOpacity,StyleSheet,TextInput } from 'react-native'
+import { View, Text,TouchableOpacity,StyleSheet,TextInput, } from 'react-native'
 import React,{useState} from 'react'
 
 const ForgotPassword = () => {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 28,
         textAlign: 'center',
-        marginBottom: 10,
+        marginBottom: 20,
     },
     childText: {
         fontWeight: '400',
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         width: '100%',
-        height: '7%',
+       height:50,
         backgroundColor: '#FF6421',
         alignSelf: 'center',
         paddingVertical: 15,

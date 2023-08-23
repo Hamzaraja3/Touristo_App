@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-const Signup = () => {
+const Signup = ({navigation}) => {
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
     const [username,setusername]=useState('');
@@ -48,10 +48,10 @@ const Signup = () => {
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity><Text style={styles.forgot}>Password must be 8 characters</Text></TouchableOpacity>
-                <TouchableOpacity style={styles.btn}><Text style={styles.loginbtn} onPress={()=>navigation.navigate('Dashboard')}>Sign Up</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('SignIn')}><Text style={styles.loginbtn}>Sign Up</Text></TouchableOpacity>
                 <View style={{ flexDirection: 'row', width: '100%',marginVertical:20 }}>
                     <Text style={styles.text}>Already have an account? </Text>
-                    <TouchableOpacity style={styles.signUpText}><Text style={styles.signUpText}>Sign In</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.signUpText} onPress={()=>navigation.navigate('SignIn')}><Text style={styles.signUpText}>Sign In</Text></TouchableOpacity>
                 </View>
             </View>
             <View></View>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         width: '100%',
-        height: '17%',
+        height: 50,
         backgroundColor: '#FF6421',
         alignSelf: 'center',
         paddingVertical: 15,

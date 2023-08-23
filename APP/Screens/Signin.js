@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-const Signin = () => {
+const Signin = ({navigation}) => {
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -38,11 +38,11 @@ const Signin = () => {
                         <Icon name={showPassword ? 'eye-off' : 'eye'} size={24} color="gray" />
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity><Text style={styles.forgot}>Forgot Password?</Text></TouchableOpacity>
-                <TouchableOpacity style={styles.btn}><Text style={styles.loginbtn} onPress={()=>navigation.navigate('Dashboard')}>Sign In</Text></TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate('Forgot Password')}><Text style={styles.forgot}>Forgot Password?</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('Dashboards')}><Text style={styles.loginbtn}>Sign In</Text></TouchableOpacity>
                 <View style={{ flexDirection: 'row', width: '100%',marginVertical:20 }}>
                     <Text style={styles.text}>Don't have an account? </Text>
-                    <TouchableOpacity style={styles.signUpText}><Text style={styles.signUpText}>Sign up</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.signUpText}><Text style={styles.signUpText} onPress={()=>navigation.navigate('Sign Up')}>Sign up</Text></TouchableOpacity>
                 </View>
             </View>
             <View></View>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         width: '100%',
-        height: '17%',
+        height: 50,
         backgroundColor: '#FF6421',
         alignSelf: 'center',
         paddingVertical: 15,
