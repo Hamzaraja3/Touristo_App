@@ -49,7 +49,7 @@ const Popular_places = () => {
             <View style={styles.itemContainer}>
                 <Image source={item.image} style={styles.image} resizeMode='cover' />
                 <View style={styles.iconContainer}>
-                    <TouchableOpacity>
+                    <TouchableOpacity style={styles.iconfavBtn}>
                         <Icon name="favorite-border" size={24} color="white" /></TouchableOpacity>
                 </View>
                 <View style={styles.itemDetails}>
@@ -155,5 +155,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 5,
 
+    },
+    iconfavBtn:{
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        borderRadius: 20,
+        width:30,
+        height:30,
+        alignItems: 'center',paddingVertical:3
     }
 });

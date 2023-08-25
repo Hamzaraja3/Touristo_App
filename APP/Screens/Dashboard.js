@@ -48,24 +48,25 @@ const Dashboard = ({navigation}) => {
         </View>
         <View style={styles.listTextmain}>
           <View style={styles.textContainer}>
-            <Text style={styles.itemName}>{item.name}</Text>
+            <View style={{flexDirection:'row'}}>
+            <Text style={styles.itemName} numberOfLines={2}>{item.name}</Text>
+            <View style={styles.ratingContainer}>
+            <Icon1 name='star' size={24} color="#FFD338" style={styles.staricon} />
+            <Text style={styles.itemRating}>{item.rating}</Text>
+          </View></View>
             <View style={styles.locationContainer}>
           <Icon2 name='location' size={24} color="#7D848D" />
           <Text style={styles.itemLocation}>{item.location}</Text>
           <Image source={item.profile} style={styles.iconimg} resizeMode="cover" />
         </View>
           </View>
-          <View style={styles.ratingContainer}>
-            <Icon1 name='star' size={24} color="#FFD338" style={styles.staricon} />
-            <Text style={styles.itemRating}>{item.rating}</Text>
-          </View>
+        
           
         </View>
        
       </TouchableOpacity>
     </View>
   );
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
@@ -109,9 +110,8 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   middleText1: {
-    fontWeight: '500',
     fontSize: 16,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Bold',
     textAlign: 'left',
     width: '80%',
   },
@@ -122,13 +122,13 @@ const styles = StyleSheet.create({
     color: '#FF6421',
   },
   itemContainer: {
-    width: '60%',
-    height: '75%',
+    width: 230,
+    height: '80%', 
     borderRadius: 14,
     backgroundColor: '#fff',
     marginHorizontal: 10,
     padding: 10,
-    flex: 1,
+  
   },
   itemImage: {
     width: '100%',
@@ -137,10 +137,11 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   listTextmain: {
-    flexDirection: 'row',
+    flexDirection: 'column', 
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginTop: 8,
+    flex: 1,
   },
   textContainer: {
     flex: 1,
@@ -149,12 +150,12 @@ const styles = StyleSheet.create({
   ratingContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    top:-19
+    
   },
   locationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+   
     marginTop: 8,
   },
   itemRating: {
@@ -164,9 +165,10 @@ const styles = StyleSheet.create({
   itemLocation: {
     color: '#888',
     fontSize: 14,
+    width:'40%'
   },
   flatListContent: {
-   
+    flexGrow: 1,
   },
   iconContainer: {
     position: 'absolute',
@@ -182,7 +184,9 @@ const styles = StyleSheet.create({
     left:40
   },
   itemName:{
-    fontFamily:'Poppins-Bold'
+    fontFamily: 'Poppins-Bold',
+    fontSize: 16,
+   width:'80%'
   }
 });
 

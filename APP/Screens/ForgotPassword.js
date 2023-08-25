@@ -1,7 +1,7 @@
 import { View, Text,TouchableOpacity,StyleSheet,TextInput, } from 'react-native'
 import React,{useState} from 'react'
 
-const ForgotPassword = () => {
+const ForgotPassword = ({navigation}) => {
     const [Email, setEmail] = useState('');
   return (
     <View style={styles.container}>
@@ -16,7 +16,7 @@ const ForgotPassword = () => {
                     onChangeText={(value) => setEmail(value)}
                 />
             </View>
-            <TouchableOpacity style={styles.btn}><Text style={styles.loginbtn} onPress={()=>navigation.navigate('Dashboard')}>Reset Password</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.btn}><Text style={styles.resetbtn} onPress={()=>navigation.navigate('Otp Verification')}>Reset Password</Text></TouchableOpacity>
     </View>
   )
 }
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     mainText: {
-        fontWeight: '700',
-        fontSize: 28,
+     fontFamily:'Poppins-Bold',
+        fontSize: 22,
         textAlign: 'center',
         marginBottom: 20,
     },
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         borderRadius: 10
     },
-    loginbtn: {
+    resetbtn: {
         textAlign: 'center',
         color:'white'
     },

@@ -10,6 +10,9 @@ import ForgotPassword from '../Screens/ForgotPassword';
 import Dashboard from '../Screens/Dashboard';
 import BottomTab from './BottomTab';
 import Details from '../Screens/Details';
+import User_Chat from '../Screens/User_Chat';
+import Edit_Profile from '../Screens/Edit_Profile';
+import Otp_Verfication from '../Screens/Otp_Verfication';
 const Stack = createNativeStackNavigator();
 const Stack_navigation = () => {
   return (
@@ -26,6 +29,9 @@ const Stack_navigation = () => {
         <Stack.Screen name="Forgot Password" component={ForgotPassword} options={{headerShown:false}}/>
         <Stack.Screen name="Dashboards" component={BottomTab} options={{headerShown:false}}/>
         <Stack.Screen name="Details" component={Details} options={{headerShown:false}}/>
+        <Stack.Screen name="User Chat" component={User_Chat} options={{headerShown:false}}/>
+        <Stack.Screen name="Edit Profile" component={Edit_Profile} options={{headerShown:false}}/>
+        <Stack.Screen name="Otp Verification" component={Otp_Verfication} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

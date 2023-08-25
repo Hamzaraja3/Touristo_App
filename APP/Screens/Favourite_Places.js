@@ -1,24 +1,8 @@
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
-import { Searchbar } from 'react-native-paper';
+import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/EvilIcons';
-const Search = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredData, setFilteredData] = useState([]);
-  const onChangeSearch = (query) => {
-    setSearchQuery(query);
-    filterData(query);
-  };
-
-  const filterData = (query) => {
-    const filtered = data.filter(
-      (item) =>
-        item.name &&
-        item.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredData(filtered);
-  };
+const Favourite_places = () => {
     const data = [
         {
             id: 1,
@@ -48,10 +32,26 @@ const Search = () => {
             id: 4,
             image: require('../assets/R4.png'),
             name: 'Hisma Desert',
-            location: 'Zeero Point, Sylhet',
+            location: 'Zeero Point, Sylhettt',
             Rating: 4.4,
             price: '$831/'
         },
+        {
+          id: 5,
+          image: require('../assets/onboard3.png'),
+          name: 'Hisma Desert',
+          location: 'Zeero Point, Sylhet',
+          Rating: 4.4,
+          price: '$831/'
+      },
+      {
+        id: 6,
+        image: require('../assets/onboard2.png'),
+        name: 'Aonang Villa Resort',
+        location: 'Av Damero, Mexico',
+        Rating: 4.4,
+        price: '$831/'
+    },
     ]
     const Item = ({ item }) => {
         return (
@@ -59,7 +59,7 @@ const Search = () => {
                 <Image source={item.image} style={styles.image} resizeMode='cover' />
                 <View style={styles.iconContainer}>
                     <TouchableOpacity style={styles.iconfavBtn}>
-                        <Icon name="favorite-border" size={24} color="white" /></TouchableOpacity>
+                        <Icon name="favorite-border" size={24} color="#FE2352" /></TouchableOpacity>
                 </View>
                 <View style={styles.itemDetails}>
                     <Text style={styles.itemName}>{item.name}</Text>
@@ -67,11 +67,7 @@ const Search = () => {
                         <Icon2 name='location' size={24} color="#7D848D" />
                         <Text style={styles.itemLocation}>{item.location}</Text>
                     </View>
-                   
-                    <View style={{flexDirection:'row'}}>
-                        <Text style={styles.itemPrice}>{item.price}</Text>
-                        <Text style={{fontFamily:'Poppins-Regular',paddingVertical:2}}>Person</Text>
-                    </View>
+                  
                 </View>
             </View>
         );
@@ -79,28 +75,9 @@ const Search = () => {
 
     return (
         <View style={styles.container}>
-                <Searchbar
-        placeholder="Search Places"
-        onChangeText={onChangeSearch}
-        value={searchQuery}
-        style={styles.searchBox}
-        icon={() => <Icon2 name="search" size={30} color="grey" />}
-        clearIcon={searchQuery.length > 0 ? () => (
-          <Icon2
-            name="close-o"
-            size={20}
-            color="grey"
-            onPress={() => {
-              setSearchQuery(''); 
-              filterData('');
-            }}
-          />
-        ) : undefined}
-
-      />
-            <Text style={styles.mainHeading}>Search Places</Text>
+            <Text style={styles.mainHeading}>Favorite Places</Text>
             <FlatList
-               data={searchQuery ? filteredData : data}
+                data={data}
                 renderItem={({ item }) => <Item item={item} />}
                 keyExtractor={(item) => item.id.toString()}
                 contentContainerStyle={styles.flatListContainer}
@@ -110,23 +87,17 @@ const Search = () => {
     )
 }
 
-export default Search
+export default Favourite_places
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 16,
   },
-  searchBox: {
-    backgroundColor: '#ffffff',
-    borderRadius: 10,
-    width: '100%',
-    marginTop: 20
-  },
   mainHeading: {
     fontSize: 22,
     fontFamily: 'Poppins-Bold',
-   marginVertical:15
+    marginBottom: 10,
   },
   flatListContainer: {
     paddingBottom: 16,
@@ -177,9 +148,5 @@ const styles = StyleSheet.create({
   locationContainer: {
     flexDirection: 'row',
   },
-    itemPrice: {
-      fontSize: 16,
-      color: '#FF6421',
-      fontFamily: 'Poppins-Regular'
-  },
 });
+

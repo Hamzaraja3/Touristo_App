@@ -64,6 +64,7 @@ const Calendar = () => {
   <View style={styles.itemContainer}>
     <View style={styles.imageContainer}>
       <Image source={item.image} style={styles.image} resizeMode='stretch' />
+     
     </View>
     <View style={styles.dataContainer}>
     <View style={{ flexDirection: 'row' }}>
@@ -79,7 +80,9 @@ const Calendar = () => {
       </View>
       <View>
       </View>
+
     </View>
+    <TouchableOpacity style={styles.iconNextContainer}><Icon name='navigate-next' size={28} style={styles.iconNextbtn} /></TouchableOpacity>
   </View>
     )}
   return (
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10
   },
   CalendarContainer: {
-    width: '98%',
+    width: '100%',
     height: 130,
     backgroundColor: '#FFFF',
     borderRadius: 12,
@@ -135,27 +138,30 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    alignItems: 'center',
+
   },
   header: {
     flexDirection: 'row',
     marginBottom: 10,
-    width: '50%'
+    width: '100%',
+    alignItems: 'center',
   },
   monthText: {
     fontSize: 20,
     fontFamily: 'Poppins-Bold',
+    width:'80%'
+   
   },
   weekDaysContainer: {
     flexDirection: 'row',
     height: 60,
-
+    alignItems: 'center',
   },
   dayContainer: {
     alignItems: 'center',
-    padding: 5,
+    padding: 6,
     borderRadius: 8,
-    marginHorizontal: 4,
+    marginHorizontal: 5,
     backgroundColor: '#f5f5f5'
   },
   currentDayContainer: {
@@ -175,8 +181,7 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     flexDirection: 'row',
-    width: '60%',
-    justifyContent: 'flex-end'
+    
   }, iconBack: {
     padding: 4,
     marginHorizontal: 6
@@ -217,11 +222,15 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     alignItems: 'center',
+    justifyContent: 'space-between', 
   },
   imageContainer: {
     width: 100,
-    height: 130,
+    height: '100%',
     borderRadius: 8,
+    flexDirection:'row',
+    alignItems: 'center', 
+    
   },
   image: {
     width: '100%',
@@ -253,6 +262,20 @@ const styles = StyleSheet.create({
 locationContainer: {
   flexDirection: 'row',
   justifyContent: 'flex-start',
+},
+iconNextContainer:{
+  width: 40,
+  height: 40,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+iconNextbtn:{
+  width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 10,
+
 },
 });
 
